@@ -5,6 +5,10 @@ const GlobalStyle = createGlobalStyle`
     v2.0 | 20110126
     License: none (public domain)
     */
+    
+    * {
+      box-sizing: border-box;
+    }
 
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -33,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         line-height: 1;
+        background-color:#E7B35F;
     }
     ol, ul {
         list-style: none;
@@ -49,8 +54,8 @@ const GlobalStyle = createGlobalStyle`
         border-collapse: collapse;
         border-spacing: 0;
     }
+
 `;
 
 export default GlobalStyle
 
-// @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
