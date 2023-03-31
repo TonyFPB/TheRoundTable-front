@@ -5,3 +5,9 @@ export async function saveSignUp(body) {
 
   return response.data
 }
+
+export async function saveLogin(body) {
+  const response = await api.post("/auth/sign-in", body)
+
+  return response.data
+}

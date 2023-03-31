@@ -1,7 +1,7 @@
-import GlobalStyle from "./assets/GlobalStyle";
+import GlobalStyle from "./assets/Styles/GlobalStyle";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import SignUp from "./pages/SignUp";
-import Login from "./pages/Login";
+import SignUp from "./pages/SignPages/SignUp";
+import Login from "./pages/SignPages/Login";
 import { ToastContainer } from 'react-toastify';
 
 function App() {
