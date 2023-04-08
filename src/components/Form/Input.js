@@ -1,4 +1,4 @@
-import { TextField, styled } from "@mui/material";
+import { TextField, styled as styledMui } from "@mui/material";
 import InputMask from "react-input-mask";
 
 export default function Input({ mask = '', maskChar = '', formatChars, variant = 'outlined', value='', onChange = () => 0, ...props }) {
@@ -9,6 +9,6 @@ export default function Input({ mask = '', maskChar = '', formatChars, variant =
     )
 }
 
-const StyledInput = styled(TextField)({
+const StyledInput = styledMui(TextField)({
     marginTop: 8
 })

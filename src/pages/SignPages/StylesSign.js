@@ -18,6 +18,13 @@ export const StyledSign = styled.div`
     font-weight:700;
     font-size:20px;
   }
+
+  @media (max-width: 400px) {
+    height: 800px;
+    img {
+      width: 250px;
+    }
+  }
 `
 export const StyledForm = styled.form`
   display: flex;
@@ -29,4 +36,7 @@ export const Tittle = styled.h1`
   font-family: 'Cinzel', serif;
   font-weight:700;
   font-size:40px;
+  @media (max-width: 400px) {
+    font-size: 30px;
+  }
 `
