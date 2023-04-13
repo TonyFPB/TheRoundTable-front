@@ -7,7 +7,11 @@ export default function TableCards({ table, player }) {
   console.log(table);
   const navigate = useNavigate()
   function teste() {
-    navigate(`/table/${table.name}`)
+    navigate(`/table/${table.id}`, {
+      state:{
+        id:table.id
+      }
+    })
   }
 
   return (

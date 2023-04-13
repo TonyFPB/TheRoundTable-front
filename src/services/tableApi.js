@@ -13,3 +13,17 @@ export async function getTablesUser() {
 
   return response.data
 }
+
+export async function getOneTableFromUser(tableId) {
+  const user = localStorage.getItem("user");
+  const { token } = JSON.parse(user);
+  const auth = {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }
+
+  const response = await api.get(`/table/${tableId}`, auth);
+
+  return response.data
+}
