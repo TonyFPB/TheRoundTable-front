@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function TableCards({ table, player }) {
-  console.log(player)
-  console.log(table);
+  // console.log(player)
+  // console.log(table);
   const navigate = useNavigate()
   function teste() {
     navigate(`/table/${table.id}`, {

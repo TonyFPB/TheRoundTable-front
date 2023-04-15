@@ -3,12 +3,12 @@ import AddButton from "../Form/AddButton"
 import AddIcon from "@mui/icons-material/Add"
 
 
-export default function AddNewPlayer() {
+export default function AddNewPlayer({setOverlay}) {
   return (
     <>
       <AddPlayer>
         Add Aventureiro
-        <AddButton size="small">
+        <AddButton size="small" onClick={setOverlay}>
           <AddIcon />
         </AddButton>
       </AddPlayer>

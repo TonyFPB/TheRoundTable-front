@@ -1,6 +1,6 @@
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import styled from "styled-components";
-import InfoFomr from "./InfosForm";
+import InfoForm from "./InfosForm";
 
 export default function PlayerForm({player}) {
   console.log(player)
@@ -21,7 +21,7 @@ export default function PlayerForm({player}) {
           {player.User.name}
         </AccordionSummary>
         <AccordionDetails>
-          {player.PlayerForm.form.map((f, i)=><InfoFomr key={i} name={f.name} value={f.value} type={f.type} references={f.references}/>)}
+          {player.PlayerForm.form.map((f, i)=><InfoForm key={i} name={f.name} value={f.value} type={f.type} references={f.references}/>)}
         </AccordionDetails>
       </Accordion>
     </StyledForm>

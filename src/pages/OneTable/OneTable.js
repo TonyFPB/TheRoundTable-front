@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import PlayerForm from "../../components/PlayerForm/PlayerForm";
+import Search from "../../components/Search/Search";
 
 
 
@@ -16,6 +17,7 @@ import PlayerForm from "../../components/PlayerForm/PlayerForm";
 export function OneTable() {
   const [players, setPlayers] = useState(null);
   const [table, setTable] = useState(null)
+  const [overlay, setOverlay] = useState(false);
 
   const location = useLocation();
   const { getOneTable } = useOneTable();
@@ -26,6 +28,7 @@ export function OneTable() {
     const id = path[path.length - 1]
     getOneTable(id)
       .then(res => {
+
         setTable(res)
         setPlayers(res.Player)
       })
@@ -42,19 +45,12 @@ export function OneTable() {
       <StyledTable>
         <TableName>{table.name}</TableName>
 
-        {players.type === "MASTER"
-          ?
-          players.map(p=><PlayerForm key={p.id} player = {p}/>)
-          :
-          players.type==="ADVENTURER"
-            ?
-            <PlayerForm player = {players}/>
-            :
-            ""
-        }
+        {table.playerMaster ? players.map(p => <PlayerForm key={p.id} player={p} />) : ""}
+        {!table.playerMaster ? <PlayerForm player={players} /> : ""}
         {
-          table.playerMaster && <AddNewPlayer />
+          table.playerMaster && <AddNewPlayer setOverlay={() => setOverlay(true)} />
         }
+        {overlay && <Search overlay={overlay} setOverlay={setOverlay} />}
       </StyledTable>
 
     </>
