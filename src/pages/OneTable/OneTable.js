@@ -10,6 +10,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import PlayerForm from "../../components/PlayerForm/PlayerForm";
 import Search from "../../components/Search/Search";
+import useSaveAddPlayer from "../../hooks/api/useSaveAddPlayer";
 
 
 
@@ -18,6 +19,7 @@ export function OneTable() {
   const [players, setPlayers] = useState(null);
   const [table, setTable] = useState(null)
   const [overlay, setOverlay] = useState(false);
+  const [loadNewPlayer, setLoadNewPlayer] = useState(false);
 
   const location = useLocation();
   const { getOneTable } = useOneTable();
@@ -28,17 +30,17 @@ export function OneTable() {
     const id = path[path.length - 1]
     getOneTable(id)
       .then(res => {
-
         setTable(res)
         setPlayers(res.Player)
       })
       .catch(err => console.log(err));
 
-  }, [])
+  }, [loadNewPlayer])
 
   if (!table) {
     return (<>ainda nao</>)
   }
+
   return (
     <>
       <Header />
@@ -50,7 +52,7 @@ export function OneTable() {
         {
           table.playerMaster && <AddNewPlayer setOverlay={() => setOverlay(true)} />
         }
-        {overlay && <Search overlay={overlay} setOverlay={setOverlay} />}
+        {overlay && <Search overlay={overlay} setOverlay={setOverlay} loadNewPlayer={loadNewPlayer} setLoadNewPlayer={setLoadNewPlayer} />}
       </StyledTable>
 
     </>

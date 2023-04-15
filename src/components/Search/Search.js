@@ -2,16 +2,20 @@ import Input from "../Form/Input";
 import { useState } from "react";
 import styled from "styled-components";
 import { CardPlayer } from "./CardPlayer";
-import { getUsers } from "../../services/userApi";
-import { debounce } from "@mui/material/";
+import useUser from "../../hooks/api/useUsers";
 
-export default function Search({ overlay, setOverlay }) {
+export default function Search({ overlay, setOverlay, loadNewPlayer, setLoadNewPlayer }) {
   const [playerName, setPlayerName] = useState([]);
+  const { getUsers } = useUser();
 
   async function handleChange(player) {
+    if (player.length < 2) {
+      return setPlayerName([]);
+    }
+
     try {
       const players = await getUsers(player)
-      console.log(players)
+
       setPlayerName(players);
     } catch (err) {
       setPlayerName([])
@@ -30,7 +34,7 @@ export default function Search({ overlay, setOverlay }) {
         {
           playerName.length !== 0
             ?
-            playerName.map(p=><CardPlayer key={p.id} id={p.id} name={p.name} />)
+            playerName.map(p => <CardPlayer key={p.id} id={p.id} name={p.name} loadNewPlayer={loadNewPlayer} setLoadNewPlayer={setLoadNewPlayer} />)
             :
             ""
         }
