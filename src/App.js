@@ -5,20 +5,24 @@ import Login from "./pages/SignPages/Login";
 import { ToastContainer } from 'react-toastify';
 import Table from "./pages/Tables/Table";
 import { OneTable } from "./pages/OneTable/OneTable";
+import { ChangePlayerProvider } from "./contexts/ChangePlayerContext";
 
 function App() {
   return (
     <>
+
       <ToastContainer />
-      <BrowserRouter>
-        <GlobalStyle />
-        <Routes>
-          <Route path="/" element={<Login/>}/>
-          <Route path="sign-up" element={<SignUp />} />
-          <Route path="/tables" element={<Table/>}/>
-          <Route path="/table/:name" element={<OneTable/>}/>
-        </Routes>
-      </BrowserRouter>
+      <ChangePlayerProvider>
+        <BrowserRouter>
+          <GlobalStyle />
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="sign-up" element={<SignUp />} />
+            <Route path="/tables" element={<Table />} />
+            <Route path="/table/:name" element={<OneTable />} />
+          </Routes>
+        </BrowserRouter>
+      </ChangePlayerProvider>
     </>
   );
 }
