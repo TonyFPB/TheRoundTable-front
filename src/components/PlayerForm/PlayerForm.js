@@ -4,12 +4,9 @@ import InfoForm from "./InfosForm";
 
 export default function PlayerForm({player}) {
   console.log(player)
+  
   if(player.type === "MASTER"){
-    return(
-      <>
-      Voce
-      </>
-    )
+    return;
   }
   return (
     <StyledForm>

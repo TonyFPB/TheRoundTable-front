@@ -49,6 +49,7 @@ export function OneTable() {
 
         {table.playerMaster ? players.map(p => <PlayerForm key={p.id} player={p} />) : ""}
         {!table.playerMaster ? <PlayerForm player={players} /> : ""}
+
         {
           table.playerMaster && <AddNewPlayer setOverlay={() => setOverlay(true)} />
         }
