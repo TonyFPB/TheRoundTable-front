@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import Table from "./pages/Tables/Table";
 import { OneTable } from "./pages/OneTable/OneTable";
 import { ChangePlayerProvider } from "./contexts/ChangePlayerContext";
+import CreateTable from "./pages/CreateTable/CreateTable";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="sign-up" element={<SignUp />} />
             <Route path="/tables" element={<Table />} />
             <Route path="/table/:name" element={<OneTable />} />
+            <Route path="/criação" element={<CreateTable />} />
           </Routes>
         </BrowserRouter>
       </ChangePlayerProvider>

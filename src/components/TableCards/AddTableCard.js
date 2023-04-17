@@ -2,20 +2,15 @@ import { Card, styled as styledMui } from "@mui/material";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function TableCards({ table, player }) {
-  const navigate = useNavigate();
-  
+export default function AddTableCards() {
+  const navigate = useNavigate()
   function handleNavigate() {
-    navigate(`/table/${table.id}`, {
-      state:{
-        id:table.id
-      }
-    })
+    navigate(`/criação`)
   }
 
   return (
     <TableDiv onClick={handleNavigate}>
-      <Tittle>{table.name}</Tittle>
+      <Tittle>Criar uma mesa</Tittle>
     </TableDiv>
   )
 }
@@ -24,7 +19,8 @@ const TableDiv = styledMui(Card)({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  backgroundColor: "#B4833A",
+  backgroundColor: "rgba(0,0,0,0)",
+  border:"3px dashed #B4833A",
   width: "200px",
   height: "150px",
   margin: "5px",

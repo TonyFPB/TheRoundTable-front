@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import useTableUser from "../../hooks/api/useTable";
 import TableCards from "../../components/TableCards/TableCard";
+import AddTableCards from "../../components/TableCards/AddTableCard";
 
 export default function Table() {
   const [tables, setTables] = useState([]);
@@ -24,8 +25,9 @@ export default function Table() {
           ?
           tables.map(t => <TableCards key={t.Table.id} player={t} table={t.Table} />)
           :
-          "tachu"
+          "Carregando..."
         }
+        <AddTableCards/>
       </TableContainer>
 
     </>

@@ -31,7 +31,6 @@ export function OneTable() {
     const id = path[path.length - 1]
     getOneTable(id)
       .then(res => {
-        console.log(res);
         setTable(res)
         setChangePlayer(res.Player)
       })

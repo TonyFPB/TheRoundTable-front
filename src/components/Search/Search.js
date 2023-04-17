@@ -61,7 +61,7 @@ const Overlay = styled.div`
   align-items: center;
 
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   top:0;
   left: 0;
   width: 100%;
